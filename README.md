@@ -6,6 +6,10 @@
 MATLAB·Python 기반 알고리즘 연구와 Kubernetes 기반 5G Core 구축을 수행하며,
 **성능 수치뿐 아니라 실제 시스템이 안정적으로 동작하는지 검증하는 과정**에 집중해 왔습니다.
 
+## Portfolio
+
+📄 [Portfolio](https://github.com/hyeyoonz05/portfolio)
+
 ---
 
 ## Featured Projects
