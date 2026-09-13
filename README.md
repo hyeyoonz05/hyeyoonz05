@@ -14,7 +14,7 @@ MATLAB·Python 기반 알고리즘 연구와 Kubernetes 기반 5G Core 구축을
 
 ## Featured Projects
 
-### [01. Kubernetes-based 5G Core Fault Analysis](https://github.com/hyeyoonz05/open5gs-k8s-fault-detection)
+### 01. Kubernetes-based 5G Core Fault Analysis
 
 **Kubernetes 환경에서 5G Core 장애를 재현하고 서비스 지표 기반으로 장애 유형과 위치를 분석**
 
