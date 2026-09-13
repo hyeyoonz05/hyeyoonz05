@@ -14,59 +14,43 @@ MATLAB·Python 기반 알고리즘 연구와 Kubernetes 기반 5G Core 구축을
 
 ## Featured Projects
 
-### 01. Kubernetes-based 5G Core Fault Analysis
+### [01. Kubernetes-based 5G Core Fault Analysis](https://github.com/hyeyoonz05/open5gs-k8s-fault-detection)
 
-**5G Core 장애를 재현하고 서비스 지표 기반으로 장애 유형과 위치를 분석한 프로젝트**
+**Kubernetes 환경에서 5G Core 장애를 재현하고 서비스 지표 기반으로 장애 유형과 위치를 분석**
 
-**Problem**
-Kubernetes에서 Pod가 `Running` 상태이더라도 UE 등록과 데이터 통신 등 실제 5G 서비스가 정상적으로 동작한다고 볼 수 없는 문제가 있었습니다.
+- Open5GS Network Function을 Kubernetes 환경에 배포
+- AMF / SMF / UPF / NRF / PCF 장애 재현
+- Latency / Packet Loss / Link Down 장애 주입
+- NAS, NGAP, SBI, PFCP, GTP-U 및 Link Quality 지표 수집
+- XGBoost 기반 장애 유형 및 NF 위치 분류
+- Pod 상태뿐 아니라 UE 등록·터널·외부 통신을 기준으로 서비스 복구 검증
 
-**What I Did**
-
-* Open5GS Network Function을 컨테이너화하여 Kubernetes 환경에 배포
-* AMF / SMF / UPF / NRF / PCF 장애 환경 구성
-* Network Latency / Packet Loss / Link Down 장애 주입
-* UERANSIM 기반 UE Registration 및 데이터 통신 검증
-* NAS, NGAP/SCTP, SBI, PFCP, GTP-U, RTT, Loss, Jitter 등 서비스 지표 수집
-* XGBoost 기반 정상/장애, 장애 유형 및 NF 위치 분류
-
-**Result**
-
-* NORMAL / FAULT 분류 정확도 약 **100%**
-* Fault Family 분류 정확도 약 **99.7%**
-* NF Location 분류 정확도 약 **99%**
-* 장애 복구 시 Pod 상태가 아닌 **UE 등록·터널 생성·외부 통신까지 확인하는 검증 절차 구축**
-
-**Tech Stack**
+**Tech**  
 `Kubernetes` `Docker` `Linux` `Open5GS` `UERANSIM` `Python` `XGBoost`
 
+➡️ [View Repository](https://github.com/hyeyoonz05/open5gs-k8s-fault-detection)
 ---
 
 ### 02. GNN-based RIS Control Optimization
 
-**통신 성능을 유지하면서 RIS 제어 연산량과 에너지 효율을 개선한 연구**
+**GNN 기반 후보 선별을 통해 RIS의 통신 성능·에너지 효율·연산 효율을 함께 개선한 연구**
 
-**Problem**
-RIS 제어 후보를 매 시간 구간마다 모두 평가하면 높은 통신 성능을 얻을 수 있지만, 후보 수 증가에 따라 연산 부담과 소비전력이 증가하는 문제가 있었습니다.
+- MATLAB 기반 채널, 사용자 간 간섭 및 소비전력 모델링
+- RIS 소자 그룹화 및 동적 제어 알고리즘 설계
+- Python 기반 GNN으로 15개 제어 후보 중 Top-3 후보 선별
+- 선별된 후보에 대해 물리 모델 기반 정밀 평가
 
-**What I Did**
+**Results**
+- Candidate: **15 → 3**
+- Runtime: **약 4.2× 향상**
+- Energy Efficiency: **19.4% 향상**
+- BER: **53.6% 개선**
+- Published in **IEEE Access**
 
-* MATLAB 기반 무선 채널, 사용자 간 간섭 및 소비전력 모델링
-* RIS 소자 그룹화를 통한 제어 후보 구성
-* Python 기반 GNN을 활용하여 유망한 후보를 Top-k로 사전 선별
-* 선별된 후보에 대해서만 물리 모델 기반 정밀 평가 수행
-* SNR과 채널 환경 변화에 따른 BER, Energy Efficiency 및 실행시간 분석
+**Tech**  
+`MATLAB` `Python` `GNN` `RIS` `Wireless Communication`
 
-**Result**
-
-* 제어 후보 **15개 → 3개**로 축소
-* Exhaustive Search 대비 실행시간 약 **4.2배 개선**
-* Always-On RIS 대비 Energy Efficiency **19.4% 개선**
-* BER **53.6% 개선**
-* 연구 결과 SCI급 저널 게재 및 국제학술대회 발표
-
-**Tech Stack**
-`MATLAB` `Python` `GNN` `Wireless Communication` `RIS`
+📄 [View Paper - IEEE Access](https://ieeexplore.ieee.org/document/11611896)
 
 ---
 
